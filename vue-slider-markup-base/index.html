@@ -20,7 +20,7 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div @mouseover="hover = true" @mouseleave="hover = false" class="item">
+                <div @mouseover="stopInterval" @mouseleave="myAutoPlay" class="item">
                     <img :src="slides[currentSlide].image" alt="Svezia" />
                     <div class="text">
                         <h3>{{slides[currentSlide].title}}</h3>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <div @mouseover="hover = true" @mouseleave="hover = false" class="thumbs">
+                <div @mouseover="stopInterval" @mouseleave="myAutoPlay" class="thumbs">
                     <div @click="showPrev" class="prev"></div>
                     <div @click="showNext" class="next"></div>
 

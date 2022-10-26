@@ -38,21 +38,19 @@ createApp({
                 }
             ],
             currentSlide: 0,
-            hover: false,
             cont: 0,
-            autoPlay: "",
-
+            interval: "",
         };
     },
     methods: {
         showNext: function () {
-            if (!this.hover) {
-                if (this.currentSlide < this.slides.length - 1) {
-                    this.currentSlide++;
-                } else {
-                    this.currentSlide = 0;
-                }
+
+            if (this.currentSlide < this.slides.length - 1) {
+                this.currentSlide++;
+            } else {
+                this.currentSlide = 0;
             }
+
         },
         showPrev: function () {
             if (this.currentSlide > 0) {
@@ -66,16 +64,17 @@ createApp({
         },
 
         myAutoPlay: function () {
-            setInterval(this.showNext, 1000);
+
+            this.interval = setInterval(this.showNext, 1000);
+
         },
         stopInterval: function () {
-            clearInterval(this.myAutoPlay.setInterval)
+            clearInterval(this.interval)
 
         }
     },
 
     created: function () {
-
         this.myAutoPlay()
     }
 }).mount("#app");
