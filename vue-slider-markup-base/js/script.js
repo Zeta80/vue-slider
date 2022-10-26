@@ -46,10 +46,12 @@ createApp({
     },
     methods: {
         showNext: function () {
-            if (this.currentSlide < this.slides.length - 1) {
-                this.currentSlide++;
-            } else {
-                this.currentSlide = 0;
+            if (!this.hover) {
+                if (this.currentSlide < this.slides.length - 1) {
+                    this.currentSlide++;
+                } else {
+                    this.currentSlide = 0;
+                }
             }
         },
         showPrev: function () {
@@ -64,27 +66,17 @@ createApp({
         },
 
         myAutoPlay: function () {
-            if (this.hover === false) {
-                setInterval(this.showNext, 1000);
-            } else {
-                clearInterval(this.myAutoPlay)
-            }
-
+            setInterval(this.showNext, 1000);
         },
         stopInterval: function () {
-            clearInterval(this.myAutoPlay)
+            clearInterval(this.myAutoPlay.setInterval)
 
         }
-
-
-
     },
 
     created: function () {
-        this.myAutoPlay()
-        console.log(this.autoplay);
-        console.log(this.cont);
 
+        this.myAutoPlay()
     }
 }).mount("#app");
 
