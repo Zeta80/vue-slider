@@ -49,18 +49,18 @@ createApp({
                 this.currentSlide = 0;
             }
         },
-    }
-    //     showPrev: function () {
-    //         if (this.currentSlide > 0) {
-    //             this.currentSlide--;
-    //         } else {
-    //             this.currentSlide = this.movie.images.length - 1;
-    //         }
-    //     },
-    //     showSlide(clickedSlide) {
-    //         this.currentSlide = clickedSlide;
-    //     }
-    // },
+        showPrev: function () {
+            if (this.currentSlide > 0) {
+                this.currentSlide--;
+            } else {
+                this.currentSlide = this.slides.length - 1;
+            }
+        },
+        showSlide(clickedSlide) {
+            this.currentSlide = clickedSlide;
+        }
+    },
+
     // created: function () {
     //     console.log("ciao, sono stato creato");
 
